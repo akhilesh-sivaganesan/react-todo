@@ -73,6 +73,7 @@ class App extends Component {
           <Typography variant="h2" component="h1">
             To Do List
           </Typography>
+          <Typography variant="subtitle1">Built by Akhilesh Sivaganesan</Typography>
           <div class="task-group">
           {todoItems}
           </div>
