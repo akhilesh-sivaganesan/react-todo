@@ -9,6 +9,7 @@ class App extends Component {
       todoList: [],
     }
     this.handleCallback = this.handleCallback.bind(this);
+    this.taskChange = this.taskChange.bind(this);
   }
   handleCallback(obj) {
     //Gets a todo object
@@ -18,12 +19,29 @@ class App extends Component {
     this.setState({todoList: this.state.todoList});
   }
 
+  taskChange(obj) {
+    alert(obj.text)
+    alert(this.state.todoList.length);
+  
+    let copy = [];
+    for (var i = 0; i < this.state.todoList.length; i++) {
+      let copyObj = this.state.todoList[i]
+      alert(copyObj.taskName)
+      if (copyObj.id === obj.id) {
+        copyObj.taskName = obj.text;
+      }
+      copy.push(copyObj);
+    }
+    this.setState({todoList: copy});
+
+  }
+
   render() {
     const todoItems = this.state.todoList.map((todo) =>
-    <Task todoObj={todo}/>
+    <Task handleTaskChange={this.taskChange} todoObj={todo}/>
     );
       return (
-      <div>
+      <div class="col">
           <h1>The Task List</h1>
           <ul>
             {todoItems}
