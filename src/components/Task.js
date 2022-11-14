@@ -25,9 +25,9 @@ class Task extends Component {
     render() {
         return (
             <div class="task">
-                <Checkbox onClick={this.handleStatusChange}/>
-                <TextField id="standard-basic" label="Standard" variant="standard" defaultValue={this.props.todoObj.taskName} onChange={this.handleTaskChange}/>
-                <Button color="secondary" onClick={this.handleDeletion}>Delete</Button>
+                <Checkbox color="success" onClick={this.handleStatusChange}/>
+                <TextField id="standard-basic" label="Task" variant="standard" defaultValue={this.props.todoObj.taskName} onChange={this.handleTaskChange}/>
+                <Button color="error" onClick={this.handleDeletion}>Delete</Button>
             </div>
         );
     }

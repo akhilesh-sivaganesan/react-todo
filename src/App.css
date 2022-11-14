@@ -1,9 +1,13 @@
 .task {
   display: flex;
   flex-direction: row;
-  align-items: left;
+  align-items: center;
+  justify-content: space-around;
   max-width: 500px;
-  margin-top: 20px;
+  border-radius: 15px;
+  margin: 20px;
+  border: 1px solid gray;
+  padding: 10px;
 }
 
 .col {
@@ -13,4 +17,15 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+}
+
+.task-group {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

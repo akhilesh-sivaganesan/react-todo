@@ -34,7 +34,7 @@ class TaskForm extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form class="row" onSubmit={this.handleSubmit}>
                     <TextField id="taskInput" type="text" placeholder="Enter Task" defaultValue={this.state.value} onChange={this.handleChange} />
                     <Button type="submit" value="Submit">Submit</Button>
                 </form>
