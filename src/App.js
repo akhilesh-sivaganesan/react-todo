@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import TaskForm from './components/TaskForm.js';
+import Task from './components/Task.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todoList: [],
+    }
+    this.handleCallback = this.handleCallback.bind(this);
+  }
+  handleCallback(obj) {
+    //Gets a todo object
+    //Adds the todo object to the list
+    //Render the todo list with list rendering
+    this.state.todoList.push(obj);
+    this.setState({todoList: this.state.todoList});
+  }
+
+  render() {
+    const todoItems = this.state.todoList.map((todo) =>
+    <Task todoObj={todo}/>
+    );
+      return (
+      <div>
+          <h1>The Task List</h1>
+          <ul>
+            {todoItems}
+          </ul>
+          <TaskForm parentCallback={this.handleCallback}/>
+      </div>
+    );
+  }
 }
 
 export default App;
