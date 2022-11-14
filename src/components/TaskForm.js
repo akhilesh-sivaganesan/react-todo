@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 var taskID = 0;
 
@@ -33,10 +35,8 @@ class TaskForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label> To Do:
-                    <input id="taskInput" type="text" placeholder="Enter Task" defaultValue={this.state.value} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
+                    <TextField id="taskInput" type="text" placeholder="Enter Task" defaultValue={this.state.value} onChange={this.handleChange} />
+                    <Button type="submit" value="Submit">Submit</Button>
                 </form>
             </div>
             

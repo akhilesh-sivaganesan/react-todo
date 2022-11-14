@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TaskForm from './components/TaskForm.js';
 import Task from './components/Task.js';
+import Typography from "@mui/material/Typography";
 
 class App extends Component {
   constructor(props) {
@@ -64,7 +65,9 @@ class App extends Component {
     );
       return (
       <div class="col">
-          <h1>The Task List</h1>
+          <Typography variant="h2" component="h2">
+            To Do List
+          </Typography>;
           {todoItems}
           <TaskForm parentCallback={this.handleCallback}/>
       </div>

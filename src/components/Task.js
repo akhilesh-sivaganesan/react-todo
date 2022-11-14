@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Checkbox from "@material-ui/core/Checkbox";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
 import "../App.css"
 class Task extends Component {
     constructor(props) {
@@ -25,9 +25,9 @@ class Task extends Component {
     render() {
         return (
             <div class="task">
-                <Checkbox onClick={this.handleStatusChange} color="success" />
+                <Checkbox onClick={this.handleStatusChange}/>
                 <TextField id="standard-basic" label="Standard" variant="standard" defaultValue={this.props.todoObj.taskName} onChange={this.handleTaskChange}/>
-                <Button onClick={this.handleDeletion}>Delete</Button>
+                <Button color="secondary" onClick={this.handleDeletion}>Delete</Button>
             </div>
         );
     }
