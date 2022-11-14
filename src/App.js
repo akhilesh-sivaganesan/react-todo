@@ -11,6 +11,7 @@ class App extends Component {
     this.handleCallback = this.handleCallback.bind(this);
     this.taskChange = this.taskChange.bind(this);
     this.statusChange = this.statusChange.bind(this);
+    this.deletion = this.deletion.bind(this);
   }
   handleCallback(obj) {
     //Gets a todo object
@@ -21,9 +22,6 @@ class App extends Component {
   }
 
   taskChange(obj) {
-    alert(obj.text)
-    alert(this.state.todoList.length);
-  
     let copy = [];
     for (var i = 0; i < this.state.todoList.length; i++) {
       let copyObj = this.state.todoList[i]
@@ -47,16 +45,27 @@ class App extends Component {
     this.setState({todoList: copy});
   }
 
+  deletion(id) {
+    let copy = [];
+    for (var i = 0; i < this.state.todoList.length; i++) {
+      let copyObj = this.state.todoList[i]
+      if (copyObj.id === id) {
+        console.log(copyObj);
+        continue;
+      }
+      copy.push(copyObj);
+    }
+    this.setState({todoList: copy});
+  }
+
   render() {
     const todoItems = this.state.todoList.map((todo) =>
-    <Task handleTaskChange={this.taskChange} handleStatusChange={this.statusChange} todoObj={todo}/>
+    <Task key={todo.id} handleTaskChange={this.taskChange} handleStatusChange={this.statusChange} handleDeletion={this.deletion} todoObj={todo}/>
     );
       return (
       <div class="col">
           <h1>The Task List</h1>
-          <ul>
-            {todoItems}
-          </ul>
+          {todoItems}
           <TaskForm parentCallback={this.handleCallback}/>
       </div>
     );

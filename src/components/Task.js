@@ -8,6 +8,7 @@ class Task extends Component {
         super(props);
         this.handleTaskChange = this.handleTaskChange.bind(this);
         this.handleStatusChange = this.handleStatusChange.bind(this);
+        this.handleDeletion = this.handleDeletion.bind(this);
     }
     handleTaskChange(event) {
         //alert(event.target.value)
@@ -18,15 +19,15 @@ class Task extends Component {
     handleStatusChange(event) {
         this.props.handleStatusChange(this.props.todoObj.id);
     }
-
+    handleDeletion(event) {
+        this.props.handleDeletion(this.props.todoObj.id);
+    }
     render() {
         return (
             <div class="task">
-                <p>Here is a todo name: {this.props.todoObj.taskName}</p>
-                <p>Here is a todo status: {this.props.todoObj.done ? "Done" : "Not Done"}</p>
                 <Checkbox onClick={this.handleStatusChange} color="success" />
                 <TextField id="standard-basic" label="Standard" variant="standard" defaultValue={this.props.todoObj.taskName} onChange={this.handleTaskChange}/>
-                <Button>hi</Button>
+                <Button onClick={this.handleDeletion}>Delete</Button>
             </div>
         );
     }
