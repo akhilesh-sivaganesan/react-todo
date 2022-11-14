@@ -8,7 +8,9 @@ class TaskForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: '',
+            error: false,
+            errorMessage: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +23,12 @@ class TaskForm extends Component {
 
     handleSubmit(event) {
         //If valid input then
+        if (this.state.value === "") {
+            this.setState({error: true})
+            this.setState({errorMessage: "Enter valid task"})
+            event.preventDefault();
+            return;
+        }
         taskID++;
         const taskObj = {
             taskName: this.state.value,
@@ -28,14 +36,20 @@ class TaskForm extends Component {
             id: taskID
         }
         this.props.parentCallback(taskObj);
+
+        this.setState({error: false});
+        this.setState({value: ""});
+        this.setState({errorMessage: ""});
+
         document.getElementById("taskInput").value = '';
         event.preventDefault();
+
     }
     render() {
         return (
             <div>
                 <form class="row" onSubmit={this.handleSubmit}>
-                    <TextField id="taskInput" type="text" placeholder="Enter Task" defaultValue={this.state.value} onChange={this.handleChange} />
+                    <TextField helperText={this.state.errorMessage} error={this.state.error} id="taskInput" type="text" placeholder="Enter Task" defaultValue={this.state.value} onChange={this.handleChange} />
                     <Button type="submit" value="Submit">Submit</Button>
                 </form>
             </div>
