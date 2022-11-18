@@ -12,6 +12,6 @@ npm run dev
 * Users can complete the tasks (completed task should be marked in italics and greyed out)
 
 ### Other Features
-* Implemented Material UI Design:
+* Implemented Material UI Design: https://mui.com/
 * Hosted on Firebase
 * View the demo: https://react-todo-voyceme.web.app/
