@@ -31,7 +31,7 @@
 }
 
 .complete {
-  text-decoration: line-through;
+  text-decoration: line-through !important;
   font-style: italic !important;
   color: gray !important;
 }
