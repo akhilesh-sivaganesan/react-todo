@@ -47,6 +47,7 @@ class App extends Component {
         copyObj.done = !copyObj.done;
         var field = document.getElementById(id)
         field.classList.toggle("complete");
+        field.disabled = copyObj.done;
       }
       copy.push(copyObj);
     }
