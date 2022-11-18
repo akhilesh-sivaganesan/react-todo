@@ -1,4 +1,6 @@
 # To Do App in React.js
+### View Demo
+https://react-todo-voyceme.web.app/
 
 ### Start the app
 npm start
@@ -14,4 +16,3 @@ npm start
 ### Other Features
 * Implemented Material UI Design: https://mui.com/
 * Hosted on Firebase
-* View the demo: https://react-todo-voyceme.web.app/
