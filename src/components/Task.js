@@ -17,10 +17,10 @@ class Task extends Component {
     }
 
     handleStatusChange(event) {
-        var field = document.getElementById("standard-basic")
-        field.classList.toggle("complete");
+        //var field = document.getElementById("standard-basic")
+        //field.classList.toggle("complete");
         this.props.handleStatusChange(this.props.todoObj.id);
-        field.disabled = this.props.todoObj.done;
+        //field.disabled = this.props.todoObj.done;
     }
     handleDeletion(event) {
         this.props.handleDeletion(this.props.todoObj.id);
@@ -29,7 +29,7 @@ class Task extends Component {
         return (
             <div class="task">
                 <Checkbox color="success" onClick={this.handleStatusChange}/>
-                <TextField id="standard-basic" label="Task" variant="standard" defaultValue={this.props.todoObj.taskName} onChange={this.handleTaskChange}/>
+                <TextField id={this.props.todoObj.id} label="Task" variant="standard" defaultValue={this.props.todoObj.taskName} onChange={this.handleTaskChange}/>
                 <Button color="error" onClick={this.handleDeletion}>Delete</Button>
             </div>
         );

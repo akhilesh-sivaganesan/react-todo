@@ -45,6 +45,8 @@ class App extends Component {
       let copyObj = this.state.todoList[i]
       if (copyObj.id === id) {
         copyObj.done = !copyObj.done;
+        var field = document.getElementById(id)
+        field.classList.toggle("complete");
       }
       copy.push(copyObj);
     }
