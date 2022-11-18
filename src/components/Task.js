@@ -17,6 +17,8 @@ class Task extends Component {
     }
 
     handleStatusChange(event) {
+        var field = document.getElementById("standard-basic")
+        field.classList.toggle("complete");
         this.props.handleStatusChange(this.props.todoObj.id);
     }
     handleDeletion(event) {
