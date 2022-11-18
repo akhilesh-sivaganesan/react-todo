@@ -1,7 +1,7 @@
 # To Do App in React.js
 
 ### Start the app
-npm run dev
+npm start
 
 
 ### Functions
